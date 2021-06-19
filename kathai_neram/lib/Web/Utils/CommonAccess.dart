@@ -11,4 +11,10 @@ class CommonAccess{
   String appDashboardDesc="Children's story telling platform";
   String searchHint="Search Kathai";
 
+  double storyCardHeight=350;
+  double storyCardWidth=300;
+  double storyImageHeight=300;
+  double storyTextHeight=40;
+
+
 }
