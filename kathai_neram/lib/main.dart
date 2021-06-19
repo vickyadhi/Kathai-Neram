@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kathai_neram/Web/DashboardPage/DashBoardScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -6,6 +7,7 @@ void main() {
   runApp(KathaiNeram());
 }
 
+/*
 class AddUser extends StatelessWidget {
   final String fullName;
   final String company;
@@ -39,25 +41,60 @@ class AddUser extends StatelessWidget {
     );
   }
 }
-
+*/
 class KathaiNeram extends StatefulWidget {
   @override
   _KathaiNeramState createState() => _KathaiNeramState();
 }
 
 class _KathaiNeramState extends State<KathaiNeram> {
+  Future<void> getBooks() async {
+    Firebase.initializeApp();
+    CollectionReference book = FirebaseFirestore.instance.collection('book');
+    book
+        .get()
+        .then((value) => {
+          for (var item in value.docs) {
+            print(item)
+          }
+                      
+          }).catchError((error) => {print(error)});
+    // Call the user's CollectionReference to add a new user
+  }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   getBooks();
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: DashBoardScreen()
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Kathai"),
-        ),
-        body: Row(
-          children: [],
-        ),
-      ),
-    );
+    return FutureBuilder(
+        // Initialize FlutterFire
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+          // Check for errors
+          if (snapshot.hasError) {
+            return Text("Error");
+          }
+
+          // Once complete, show your application
+          if (snapshot.connectionState == ConnectionState.done) {
+            getBooks();
+            return FutureBuilder(future: getBooks(), 
+            builder: (context, snapshot) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false, home: DashBoardScreen());
+            });
+          }
+
+          // Otherwise, show something whilst waiting for initialization to complete
+          return MaterialApp(
+              debugShowCheckedModeBanner: false, home: Text("Loading"));
+        });
   }
 }

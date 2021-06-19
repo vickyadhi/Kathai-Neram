@@ -19,3 +19,7 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+kathai_neram/ios/Podfile.lock
+kathai_neram/ios/Pods/
+kathai_neram/ios/Runner.xcworkspace/xcuserdata/
+kathai_neram/ios/Runner.xcworkspace/xcuserdata/rajesh-2497.xcuserdatad/UserInterfaceState.xcuserstate
