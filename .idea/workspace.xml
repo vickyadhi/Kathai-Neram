@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Kathai-Neram.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/CommonAccess.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/HexColor.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +33,17 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kathai_neram/lib/Web/Utils" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Viky_projects\Kathai-Neram\kathai_neram\lib\Web\Utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Viky_projects\Kathai-Neram\kathai_neram\lib" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="FlutterRunConfigurationType" factoryName="Flutter" nameIsGenerated="true">
@@ -57,16 +62,56 @@
       <option name="presentableId" value="Default" />
       <updated>1624086398847</updated>
     </task>
+    <task id="LOCAL-00001" summary="Dashboard Screen setup Added">
+      <created>1624087465141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624087465141</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dashboard Screen setup Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard Screen setup Added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624087131170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1624087131170" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624087343671">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624087462813">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624087343671" />
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624087462813" />
+    <state width="1476" height="423" key="GridCell.Tab.0.bottom" timestamp="1624095929864">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1476" height="423" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624095929864" />
+    <state width="1476" height="423" key="GridCell.Tab.0.center" timestamp="1624095929864">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1476" height="423" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624095929864" />
+    <state width="1476" height="423" key="GridCell.Tab.0.left" timestamp="1624095929864">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1476" height="423" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624095929864" />
+    <state width="1476" height="423" key="GridCell.Tab.0.right" timestamp="1624095929864">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1476" height="423" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624095929864" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624087486551">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624087486551" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624087474449">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624087474449" />
+    <state x="426" y="189" key="run.anything.popup" timestamp="1624094446126">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="426" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1624094446126" />
   </component>
 </project>

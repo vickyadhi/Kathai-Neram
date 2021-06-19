@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'Web/DashboardPage/DashBoardScreen.dart';
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: DashBoardScreen(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
