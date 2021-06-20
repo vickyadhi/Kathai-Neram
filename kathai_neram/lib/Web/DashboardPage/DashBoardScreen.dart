@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kathai_neram/Web/Utils/CommonAccess.dart';
 import 'package:kathai_neram/Web/Utils/HexColor.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class DashBoardScreen extends StatefulWidget {
   @override
@@ -12,30 +14,24 @@ class DashBoardScreen extends StatefulWidget {
 
 class DashBoardScreenState extends State<DashBoardScreen> {
   final _scrollController = ScrollController();
-  List<Category> getCategories1 = new List();
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Category category = new Category();
-    category.name = "test";
-    category.image = "https://picsum.photos/400/300";
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
-    getCategories1.add(category);
+    Firebase.initializeApp();
+    CollectionReference book = FirebaseFirestore.instance.collection('book');
+    book
+        .get()
+        .then((value) => {
+      for (var item in value.docs) {
+        print(item)
+      }
+
+    }).catchError((error) => {print(error)});
   }
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: Container(
           decoration: BoxDecoration(
@@ -156,7 +152,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                           BorderRadius.circular(10),
                                           image: DecorationImage(
                                               image: NetworkImage(
-                                                  "https://blog-cdn.reedsy.com/uploads/2019/04/andy-catling-2.jpg"),
+                                                  "https://drawing-basics-intro_900x506.jpg"),
                                               fit: BoxFit.fill)),
                                       width: CommonAccess().storyCardWidth,
                                       height: CommonAccess().storyImageHeight,
@@ -180,14 +176,4 @@ class DashBoardScreenState extends State<DashBoardScreen> {
           )),
     );
   }
-}
-
-class Category {
-  String name;
-  String image;
-
-  Category({
-    this.name,
-    this.image,
-  });
 }
