@@ -15,6 +15,8 @@ class CommonAccess{
   double storyCardWidth=300;
   double storyImageHeight=300;
   double storyTextHeight=40;
-
+  int itemLoading=0;
+  int itemFound=200;
+  int itemNotFound=401;
 
 }
