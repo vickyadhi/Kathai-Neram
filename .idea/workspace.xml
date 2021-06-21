@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/pojoModel/DashboardStoryPojo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/CommonAccess.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/CommonAccess.dart" afterDir="false" />
-    </list>
+    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624179130135</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Dashboard firestore data listing">
+      <created>1624207653800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624207653800</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -98,7 +99,8 @@
     <MESSAGE value="Dashboard Screen header and grid setup" />
     <MESSAGE value="Dashboard list ui - Complete" />
     <MESSAGE value="firebase config" />
-    <option name="LAST_COMMIT_MESSAGE" value="firebase config" />
+    <MESSAGE value="Dashboard firestore data listing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard firestore data listing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624167358132">
@@ -109,38 +111,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="1336" height="624" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1624167339547" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624179129194">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624207651078">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624179129194" />
-    <state width="1476" height="275" key="GridCell.Tab.0.bottom" timestamp="1624207319671">
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624207651078" />
+    <state width="1476" height="275" key="GridCell.Tab.0.bottom" timestamp="1624207427889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624207319671" />
-    <state width="1476" height="275" key="GridCell.Tab.0.center" timestamp="1624207319671">
+    <state width="1476" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624207427889" />
+    <state width="1476" height="275" key="GridCell.Tab.0.center" timestamp="1624207427889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624207319671" />
-    <state width="1476" height="275" key="GridCell.Tab.0.left" timestamp="1624207319670">
+    <state width="1476" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624207427889" />
+    <state width="1476" height="275" key="GridCell.Tab.0.left" timestamp="1624207427889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624207319670" />
-    <state width="1476" height="275" key="GridCell.Tab.0.right" timestamp="1624207319671">
+    <state width="1476" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624207427889" />
+    <state width="1476" height="275" key="GridCell.Tab.0.right" timestamp="1624207427889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624207319671" />
+    <state width="1476" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624207427889" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1624204927604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1624204927604" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624179143438">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624207671399">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624179143438" />
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624179136979">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624207671399" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624207660865">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624179136979" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624207660865" />
     <state x="426" y="189" width="672" height="677" key="run.anything.popup" timestamp="1624096698552">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
