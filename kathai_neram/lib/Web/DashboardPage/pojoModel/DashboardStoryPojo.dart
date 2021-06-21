@@ -1,4 +1,5 @@
 class DashboardStoryPojo {
-  String storyName="",storyImage="",storyId;
-  DashboardStoryPojo(this.storyName,this.storyImage,this.storyId);
+  String title,storyId;
+  List<dynamic> images;
+  DashboardStoryPojo(this.title,this.storyId,this.images);
 }

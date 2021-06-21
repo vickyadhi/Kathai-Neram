@@ -4,76 +4,44 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
-  //runApp(KathaiNeram());
+  // runApp(KathaiNeram());
   runApp(MaterialApp(
-    home: DashBoardScreen(),
+    home: KathaiNeram(),
+    debugShowCheckedModeBanner: false,
   ));
 }
 
-/*
-class AddUser extends StatelessWidget {
-  final String fullName;
-  final String company;
-  final int age;
+class Book {
+  final List<String> stories;
+  final String thumbnail;
+  final String title;
 
-  AddUser(this.fullName, this.company, this.age);
-
-  @override
-  Widget build(BuildContext context) {
-    // Create a CollectionReference called users that references the firestore collection
-    CollectionReference book = FirebaseFirestore.instance.collection('book');
-
-    Future<void> addUser() {
-      book.get().then((value) => print(value));
-      // Call the user's CollectionReference to add a new user
-      return book
-          .add({
-            'full_name': fullName, // John Doe
-            'company': company, // Stokes and Sons
-            'age': age // 42
-          })
-          .then((value) => print("User Added"))
-          .catchError((error) => print("Failed to add user: $error"));
-    }
-
-    return TextButton(
-      onPressed: addUser,
-      child: Text(
-        "Add User",
-      ),
-    );
-  }
+  Book({this.stories, this.thumbnail, this.title});
+  
 }
-*/
+
 class KathaiNeram extends StatefulWidget {
   @override
   _KathaiNeramState createState() => _KathaiNeramState();
 }
 
 class _KathaiNeramState extends State<KathaiNeram> {
-  Future<void> getBooks() async {
+  /*
+  Future<List<Book>> getBooks() async {
     Firebase.initializeApp();
     CollectionReference book = FirebaseFirestore.instance.collection('book');
     book
         .get()
-        .then((value) => {
+        .then((value) =>  {
           for (var item in value.docs) {
-            print(item)
+            print(item.data())
           }
+          
                       
           }).catchError((error) => {print(error)});
     // Call the user's CollectionReference to add a new user
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   getBooks();
-  //   return MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     home: DashBoardScreen()
-  //   );
-  // }
-
+*/
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -87,17 +55,74 @@ class _KathaiNeramState extends State<KathaiNeram> {
 
           // Once complete, show your application
           if (snapshot.connectionState == ConnectionState.done) {
-            getBooks();
-            return FutureBuilder(future: getBooks(), 
-            builder: (context, snapshot) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false, home: DashBoardScreen());
-            });
+            return BookGridScreen();
           }
 
           // Otherwise, show something whilst waiting for initialization to complete
-          return MaterialApp(
-              debugShowCheckedModeBanner: false, home: Text("Loading"));
+          return Text("Loading");
         });
   }
 }
+
+class BookGridScreen extends StatefulWidget {  
+  BookGridScreen({Key key}) : super(key: key);  
+  @override  
+  _BookGridScreenState createState() => _BookGridScreenState();  
+}  
+  
+class _BookGridScreenState extends State<BookGridScreen> {  
+  @override  
+  Widget build(BuildContext context) { 
+      
+    return Scaffold(  
+      appBar: AppBar(title: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Kathai Neram Books' ,
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold,
+                                    // color:HexColor(CommonAccess().titleBlack1)
+                                    )),
+                          ],
+                        ),
+                      )),  
+      body: Center(  
+          child: StreamBuilder<QuerySnapshot> ( stream: FirebaseFirestore.instance.collection("book").snapshots(), builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) return new Text("There is no Book");
+          return GridView.extent(  
+            primary: false,  
+            padding: const EdgeInsets.all(16),  
+            crossAxisSpacing: 10,  
+            mainAxisSpacing: 10,  
+            maxCrossAxisExtent: 200.0,  
+            children: getItems(snapshot),  
+          );
+        }))   
+    );  
+  }  
+
+  getItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+    return snapshot.data.docs
+        .map((doc) =>
+        TextButton(onPressed: () {
+          Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => DashBoardScreen()),
+  );
+        }
+        , child: Container(  
+                padding: EdgeInsets.all(8),  
+                child: Column(children: [
+                  Image.network(doc["thumbnail"]),
+                  Text(doc["title"], style: TextStyle(fontSize: 20), overflow: TextOverflow.visible)]),  
+                color: Colors.blueGrey,  
+              ))
+          
+              )
+        .toList();
+        
+  }
+ 
+}  

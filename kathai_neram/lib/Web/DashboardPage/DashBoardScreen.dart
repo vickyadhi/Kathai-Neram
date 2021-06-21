@@ -24,12 +24,11 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     super.initState();
     Firebase.initializeApp();
     CollectionReference storyList =
-        FirebaseFirestore.instance.collection('storyList');
+        FirebaseFirestore.instance.collection('story');
     storyList.get().then((value) {
       setState(() {
         for (var item in value.docs) {
-          storyArray.add(DashboardStoryPojo(item['story_title'].toString(),
-              item['story_image'].toString(), item['story_title'].toString()));
+          storyArray.add(DashboardStoryPojo(item['title'].toString(), item.id.toString(), item['images']));
         }
         if(storyArray.isNotEmpty){
           storyVisible=CommonAccess().itemFound;
@@ -47,6 +46,26 @@ class DashBoardScreenState extends State<DashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Kathai',
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold,
+                                    // color:HexColor(CommonAccess().titleBlack1)
+                                    )),
+                            TextSpan(
+                                text: ' Neram Stories',
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold,
+                                    // color: HexColor(CommonAccess().titleBlack2))
+                                    )),
+                          ],
+                        ),
+                      )),
       body: Container(
           decoration: BoxDecoration(
               color: HexColor(CommonAccess().commonBackgroundColor)),
@@ -64,26 +83,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Kathai',
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        HexColor(CommonAccess().titleBlack1))),
-                            TextSpan(
-                                text: ' Neram',
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        HexColor(CommonAccess().titleBlack2))),
-                          ],
-                        ),
-                      ),
+                      
                       SizedBox(
                         height: 5,
                       ),
@@ -167,7 +167,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                             BorderRadius.circular(10),
                                             image: DecorationImage(
                                                 image: NetworkImage(
-                                                    storyArray[index].storyImage
+                                                    storyArray[index].images[0]
                                                 ),
                                                 fit: BoxFit.fill)),
                                         width: CommonAccess().storyCardWidth,
@@ -183,7 +183,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                                 child: Align(
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    storyArray[index].storyName,
+                                                    storyArray[index].title,
                                                     maxLines: 1,
                                                     overflow: TextOverflow.ellipsis,
                                                     style: TextStyle(
