@@ -6,6 +6,9 @@ import 'package:kathai_neram/Web/Utils/CommonAccess.dart';
 import 'package:kathai_neram/Web/Utils/HexColor.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import '../../Story Screen.dart';
+
+// ignore: must_be_immutable
 class DashBoardScreen extends StatefulWidget {
   String docId;
 
@@ -156,7 +159,12 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                             scrollDirection: Axis.horizontal,
                             itemCount: storyArray.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return Container(
+                              return TextButton(onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => StoryScreen()),
+                                );
+                              }, child: Container(
                                 child: Card(
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
@@ -201,7 +209,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   ),
                                 ),
                                 width: CommonAccess().storyCardWidth,
-                              );
+                              ));
                             }),
                       )
 /*                      Builder(builder: (context){
@@ -308,4 +316,27 @@ class DashBoardScreenState extends State<DashBoardScreen> {
           )),
     );
   }
+
+  getItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+    return snapshot.data.docs
+        .map((doc) =>
+        TextButton(onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => StoryScreen()),
+          );
+        }
+            , child: Container(
+              padding: EdgeInsets.all(8),
+              child: Column(children: [
+                Image.network(doc["thumbnail"]),
+                Text(doc["title"], style: TextStyle(fontSize: 20), overflow: TextOverflow.visible)]),
+              color: Colors.blueGrey,
+            ))
+
+    )
+        .toList();
+
+  }
+
 }
