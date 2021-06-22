@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "137001345768",
+    "project_id": "kathaineram-d1d7f",
+    "storage_bucket": "kathaineram-d1d7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137001345768:android:045af9ed08f97bf587df5d",
+        "android_client_info": {
+          "package_name": "com.yaash.kathai_neram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137001345768-6mlue2ejqvj43cdjnr444cntg7rl3b15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7fjybQ9011y_0zKvil7ujNXGys2_Fyjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137001345768-6mlue2ejqvj43cdjnr444cntg7rl3b15.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "137001345768-m0phrkjjv8eg0ud70pvpp4cp6fn3emqd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yaash.kathaiNeram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
