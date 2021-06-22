@@ -109,7 +109,7 @@ class _BookGridScreenState extends State<BookGridScreen> {
         TextButton(onPressed: () {
           Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => DashBoardScreen()),
+    MaterialPageRoute(builder: (context) => DashBoardScreen(docId: doc.id)),
   );
         }
         , child: Container(  

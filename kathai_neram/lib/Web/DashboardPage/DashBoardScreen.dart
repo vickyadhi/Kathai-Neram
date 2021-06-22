@@ -7,6 +7,9 @@ import 'package:kathai_neram/Web/Utils/HexColor.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class DashBoardScreen extends StatefulWidget {
+  String docId;
+
+DashBoardScreen({Key key, @required this.docId}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return new DashBoardScreenState();
@@ -23,10 +26,11 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     // TODO: implement initState
     super.initState();
     Firebase.initializeApp();
-    CollectionReference storyList =
-        FirebaseFirestore.instance.collection('story');
+    var storyList =
+        FirebaseFirestore.instance.collection('story').where('book', isEqualTo: widget.docId);
     storyList.get().then((value) {
       setState(() {
+        print(value.docs);
         for (var item in value.docs) {
           storyArray.add(DashboardStoryPojo(item['title'].toString(), item.id.toString(), item['images']));
         }
