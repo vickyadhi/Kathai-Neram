@@ -21,7 +21,7 @@ DashBoardScreen({Key key, @required this.docId}) : super(key: key);
 
 class DashBoardScreenState extends State<DashBoardScreen> {
   final _scrollController = ScrollController();
-  List<DashboardStoryPojo> storyArray = [];
+  List<DashboardStoryPojo> stories = [];
   int storyVisible=CommonAccess().itemLoading;
 
   @override
@@ -29,15 +29,15 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     // TODO: implement initState
     super.initState();
     Firebase.initializeApp();
-    var storyList =
+    var storyRef =
         FirebaseFirestore.instance.collection('story').where('book', isEqualTo: widget.docId);
-    storyList.get().then((value) {
+    storyRef.get().then((value) {
       setState(() {
         print(value.docs);
         for (var item in value.docs) {
-          storyArray.add(DashboardStoryPojo(item['title'].toString(), item.id.toString(), item['images']));
+          stories.add(DashboardStoryPojo(item['title'].toString(), item.id.toString(), item['audio'].toString(), item['story'].toString(), item['images']));
         }
-        if(storyArray.isNotEmpty){
+        if(stories.isNotEmpty){
           storyVisible=CommonAccess().itemFound;
         }else{
           storyVisible=CommonAccess().itemNotFound;
@@ -157,12 +157,12 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                         child: ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemCount: storyArray.length,
+                            itemCount: stories.length,
                             itemBuilder: (BuildContext context, int index) {
                               return TextButton(onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => StoryScreen()),
+                                  MaterialPageRoute(builder: (context) => StoryScreen(story: stories[index])),
                                 );
                               }, child: Container(
                                 child: Card(
@@ -179,7 +179,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                             BorderRadius.circular(10),
                                             image: DecorationImage(
                                                 image: NetworkImage(
-                                                    storyArray[index].images[0]
+                                                    stories[index].images[0]
                                                 ),
                                                 fit: BoxFit.fill)),
                                         width: CommonAccess().storyCardWidth,
@@ -195,7 +195,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                                 child: Align(
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    storyArray[index].title,
+                                                    stories[index].title,
                                                     maxLines: 1,
                                                     overflow: TextOverflow.ellipsis,
                                                     style: TextStyle(
