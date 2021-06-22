@@ -90,7 +90,7 @@ class _BookGridScreenState extends State<BookGridScreen> {
                       )),  
       body: Center(  
           child: StreamBuilder<QuerySnapshot> ( stream: FirebaseFirestore.instance.collection("book").snapshots(), builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) return new Text("There is no Book");
+          if (!snapshot.hasData) return new Text("Loading");
           return GridView.extent(  
             primary: false,  
             padding: const EdgeInsets.all(16),  

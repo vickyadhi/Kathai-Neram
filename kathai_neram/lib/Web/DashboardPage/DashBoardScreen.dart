@@ -6,7 +6,7 @@ import 'package:kathai_neram/Web/Utils/CommonAccess.dart';
 import 'package:kathai_neram/Web/Utils/HexColor.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import '../../Story Screen.dart';
+import '../../StoryScreen.dart';
 
 // ignore: must_be_immutable
 class DashBoardScreen extends StatefulWidget {
