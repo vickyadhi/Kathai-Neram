@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-
-import 'HexColor.dart';
-
 class CommonAccess{
   String commonBackgroundColor="#EAEAEA";
   String titleBlack1="#000000";

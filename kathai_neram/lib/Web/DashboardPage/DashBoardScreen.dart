@@ -6,7 +6,13 @@ import 'package:kathai_neram/Web/Utils/CommonAccess.dart';
 import 'package:kathai_neram/Web/Utils/HexColor.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import '../../StoryScreen.dart';
+
+// ignore: must_be_immutable
 class DashBoardScreen extends StatefulWidget {
+  String docId;
+
+DashBoardScreen({Key key, @required this.docId}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return new DashBoardScreenState();
@@ -15,7 +21,7 @@ class DashBoardScreen extends StatefulWidget {
 
 class DashBoardScreenState extends State<DashBoardScreen> {
   final _scrollController = ScrollController();
-  List<DashboardStoryPojo> storyArray = [];
+  List<DashboardStoryPojo> stories = [];
   int storyVisible=CommonAccess().itemLoading;
 
   @override
@@ -23,15 +29,15 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     // TODO: implement initState
     super.initState();
     Firebase.initializeApp();
-    CollectionReference storyList =
-        FirebaseFirestore.instance.collection('storyList');
-    storyList.get().then((value) {
+    var storyRef =
+        FirebaseFirestore.instance.collection('story').where('book', isEqualTo: widget.docId);
+    storyRef.get().then((value) {
       setState(() {
+        print(value.docs);
         for (var item in value.docs) {
-          storyArray.add(DashboardStoryPojo(item['story_title'].toString(),
-              item['story_image'].toString(), item['story_title'].toString()));
+          stories.add(DashboardStoryPojo(item['title'].toString(), item.id.toString(), item['audio'].toString(), item['story'].toString(), item['images']));
         }
-        if(storyArray.isNotEmpty){
+        if(stories.isNotEmpty){
           storyVisible=CommonAccess().itemFound;
         }else{
           storyVisible=CommonAccess().itemNotFound;
@@ -47,6 +53,26 @@ class DashBoardScreenState extends State<DashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Kathai',
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold,
+                                    // color:HexColor(CommonAccess().titleBlack1)
+                                    )),
+                            TextSpan(
+                                text: ' Neram Stories',
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.bold,
+                                    // color: HexColor(CommonAccess().titleBlack2))
+                                    )),
+                          ],
+                        ),
+                      )),
       body: Container(
           decoration: BoxDecoration(
               color: HexColor(CommonAccess().commonBackgroundColor)),
@@ -64,26 +90,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Kathai',
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        HexColor(CommonAccess().titleBlack1))),
-                            TextSpan(
-                                text: ' Neram',
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        HexColor(CommonAccess().titleBlack2))),
-                          ],
-                        ),
-                      ),
+                      
                       SizedBox(
                         height: 5,
                       ),
@@ -150,9 +157,14 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                         child: ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemCount: storyArray.length,
+                            itemCount: stories.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return Container(
+                              return TextButton(onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => StoryScreen(story: stories[index])),
+                                );
+                              }, child: Container(
                                 child: Card(
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
@@ -167,7 +179,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                             BorderRadius.circular(10),
                                             image: DecorationImage(
                                                 image: NetworkImage(
-                                                    storyArray[index].storyImage
+                                                    stories[index].images[0]
                                                 ),
                                                 fit: BoxFit.fill)),
                                         width: CommonAccess().storyCardWidth,
@@ -183,7 +195,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                                 child: Align(
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    storyArray[index].storyName,
+                                                    stories[index].title,
                                                     maxLines: 1,
                                                     overflow: TextOverflow.ellipsis,
                                                     style: TextStyle(
@@ -197,7 +209,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   ),
                                 ),
                                 width: CommonAccess().storyCardWidth,
-                              );
+                              ));
                             }),
                       )
 /*                      Builder(builder: (context){
@@ -304,4 +316,27 @@ class DashBoardScreenState extends State<DashBoardScreen> {
           )),
     );
   }
+
+  getItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+    return snapshot.data.docs
+        .map((doc) =>
+        TextButton(onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => StoryScreen()),
+          );
+        }
+            , child: Container(
+              padding: EdgeInsets.all(8),
+              child: Column(children: [
+                Image.network(doc["thumbnail"]),
+                Text(doc["title"], style: TextStyle(fontSize: 20), overflow: TextOverflow.visible)]),
+              color: Colors.blueGrey,
+            ))
+
+    )
+        .toList();
+
+  }
+
 }
