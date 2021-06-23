@@ -35,7 +35,7 @@ bool isPlaying = false;
                 icon: Icon(Icons.pause));
 
     var splits = widget.story.story.split("{image}");
-    
+    splits.removeWhere((element) => element.length < 1);
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
