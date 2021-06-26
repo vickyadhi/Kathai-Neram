@@ -17,7 +17,6 @@ class Book {
   final String title;
 
   Book({this.stories, this.thumbnail, this.title});
-
 }
 
 class KathaiNeram extends StatefulWidget {
@@ -50,16 +49,46 @@ class _KathaiNeramState extends State<KathaiNeram> {
         builder: (context, snapshot) {
           // Check for errors
           if (snapshot.hasError) {
-            return Text("Error");
+            return Text("Error Occurred");
           }
 
           // Once complete, show your application
           if (snapshot.connectionState == ConnectionState.done) {
-            return BookGridScreen();
+            return FutureBuilder(
+                // Initialize FlutterFire
+                future: FirebaseFirestore.instance
+                    .collection("book")
+                    .where('active', isEqualTo: true)
+                    .get(),
+                builder: (context, snapshot) {
+                  // Check for errors
+                  if (snapshot.hasError) {
+                    return Text("Error Occurred");
+                  }
+
+                  // if (snapshota)
+                  QuerySnapshot data = snapshot.data;
+                  // Once complete, show your application
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (data.docs.length == 1) {
+                      return DashBoardScreen(
+                          docId: data.docs.first.id);
+                    } else {
+                      return BookGridScreen();
+                    }
+                  }
+
+                  // Otherwise, show something whilst waiting for initialization to complete
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                });
+            // return BookGridScreen();
           }
 
-          // Otherwise, show something whilst waiting for initialization to complete
-          return Text("Loading");
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         });
   }
 }
@@ -73,56 +102,61 @@ class BookGridScreen extends StatefulWidget {
 class _BookGridScreenState extends State<BookGridScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(title: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Kathai Neram Books' ,
-                                style: TextStyle(
-                                    fontSize: 23,
-                                    fontWeight: FontWeight.bold,
-                                    // color:HexColor(CommonAccess().titleBlack1)
-                                    )),
-                          ],
-                        ),
-                      )),
-      body: Center(
-          child: StreamBuilder<QuerySnapshot> ( stream: FirebaseFirestore.instance.collection("book").snapshots(), builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) return new Text("Loading");
-          return GridView.extent(
-            primary: false,
-            padding: const EdgeInsets.all(16),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            maxCrossAxisExtent: 200.0,
-            children: getItems(snapshot),
-          );
-        }))
-    );
+        appBar: AppBar(
+            title: Text.rich(
+          TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'Kathai Neram Books',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    // color:HexColor(CommonAccess().titleBlack1)
+                  )),
+            ],
+          ),
+        )),
+        body: Center(
+            child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection("book")
+                    .where('active', isEqualTo: true)
+                    .snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (!snapshot.hasData) return new Text("Loading");
+                  return GridView.extent(
+                    primary: false,
+                    padding: const EdgeInsets.all(16),
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    maxCrossAxisExtent: 200.0,
+                    children: getItems(snapshot),
+                  );
+                })));
   }
 
   getItems(AsyncSnapshot<QuerySnapshot> snapshot) {
     return snapshot.data.docs
-        .map((doc) =>
-        TextButton(onPressed: () {
-          Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => DashBoardScreen(docId: doc.id)),
-  );
-        }
-        , child: Container(
-                padding: EdgeInsets.all(8),
-                child: Column(children: [
-                  Image.network(doc["thumbnail"]),
-                  Text(doc["title"], style: TextStyle(fontSize: 20), overflow: TextOverflow.visible)]),
-                color: Colors.blueGrey,
-              ))
-
-              )
+        .map((doc) => TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DashBoardScreen(docId: doc.id)),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(8),
+              child: Column(children: [
+                Image.network(doc["thumbnail"]),
+                Text(doc["title"],
+                    style: TextStyle(fontSize: 20),
+                    overflow: TextOverflow.visible)
+              ]),
+              color: Colors.blueGrey,
+            )))
         .toList();
-
   }
-
 }

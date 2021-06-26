@@ -25,13 +25,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="" />
+    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22-06-2021_22_45__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22-06-2021_22_45__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/StoryScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/StoryScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/generated_plugin_registrant.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -63,8 +76,8 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../src/flutter/flutter/bin/cache/dart-sdk" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -81,7 +94,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -128,14 +141,7 @@
       <option name="project" value="LOCAL" />
       <updated>1624382836194</updated>
     </task>
-    <task id="LOCAL-00006" summary="Dashboard ui changes&#10;main.dart conflict fixes">
-      <created>1624383222179</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1624383222179</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -167,8 +173,7 @@
     <MESSAGE value="Dashboard list ui - Complete" />
     <MESSAGE value="firebase config" />
     <MESSAGE value="Dashboard ui changes" />
-    <MESSAGE value="Dashboard ui changes&#10;main.dart conflict fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard ui changes&#10;main.dart conflict fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard ui changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624167358132">
@@ -179,51 +184,51 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="1336" height="624" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1624167339547" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624383220377">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624382834256">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624383220377" />
-    <state x="100" y="100" width="1336" height="624" key="DiffContextDialog" timestamp="1624466194781">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624382834256" />
+    <state x="93" y="93" width="1350" height="678" key="DiffContextDialog" timestamp="1624554111590">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="100" y="100" width="1336" height="624" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1624466194781" />
+    <state x="93" y="93" width="1350" height="678" key="DiffContextDialog/0.0.1536.864@0.0.1536.864" timestamp="1624554111590" />
     <state x="556" y="171" key="FileChooserDialogImpl" timestamp="1624350641421">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="556" y="171" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1624350641421" />
-    <state width="1476" height="275" key="GridCell.Tab.0.bottom" timestamp="1624467098198">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1624596321336">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624467098198" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1624361009200" />
-    <state width="1476" height="275" key="GridCell.Tab.0.center" timestamp="1624467098198">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1476" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624382640015" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1624596321336" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1624596321304">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624467098198" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1624361009200" />
-    <state width="1476" height="275" key="GridCell.Tab.0.left" timestamp="1624467098198">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1476" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624382640014" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1624596321304" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1624596321304">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624467098198" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1624361009159" />
-    <state width="1476" height="275" key="GridCell.Tab.0.right" timestamp="1624467098198">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1476" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624382640014" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1624596321304" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1624596321304">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1476" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624467098198" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1624361009200" />
-    <state x="277" y="60" key="SettingsEditor" timestamp="1624350649987">
+    <state width="1476" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624382640015" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1624596321304" />
+    <state x="277" y="60" key="SettingsEditor" timestamp="1624558226934">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1624204927604" />
-    <state x="277" y="60" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1624350649987" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624383245892">
+    <state x="277" y="60" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1624558226934" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624382860224">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624383245892" />
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624465871335">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624382860224" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624382845406">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624465871335" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624382845406" />
     <state x="426" y="189" width="672" height="677" key="run.anything.popup" timestamp="1624096698552">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
