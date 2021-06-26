@@ -90,8 +90,6 @@ class _AddNewStoryScreenState extends State<AddNewStoryScreen> {
                       }
                     },
                   ),
-                  // this is where the
-                  // input goes
                   TextFormField(
                       decoration:
                           InputDecoration(labelText: 'Audio Public URL'),
@@ -111,9 +109,6 @@ class _AddNewStoryScreenState extends State<AddNewStoryScreen> {
                 ],
               ),
             ),
-            // this is where
-            // the form field
-            // are defined
             SizedBox(
               height: 20,
             ),
