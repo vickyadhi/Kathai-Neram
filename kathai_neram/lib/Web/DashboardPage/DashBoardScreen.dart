@@ -114,18 +114,18 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                           ]),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(top: 25,bottom: 25,left: 10,right: 10),
-                          child:
-                          Column(
+                          padding: EdgeInsets.only(
+                              top: 25, bottom: 25, left: 10, right: 10),
+                          child: Column(
                             children: [
                               SizedBox(
                                 height: 5,
                               ),
-                              Text("Kathai Neram Stories",style: TextStyle(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color:Colors.white
-                              )),
+                              Text("Kathai Neram Stories",
+                                  style: TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
                               SizedBox(
                                 height: 5,
                               ),
@@ -146,15 +146,18 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      IconButton(onPressed:() {
-      Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => AddNewStoryScreen()),
-              );
-                      }, icon: Icon(Icons.add)),
-                      Padding(padding: EdgeInsets.all(10),child:
-                        Column(
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddNewStoryScreen()),
+                            );
+                          },
+                          icon: Icon(Icons.add)),
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
                           children: [
                             Container(
                                 width: 700,
@@ -162,37 +165,46 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   padding: EdgeInsets.only(
                                       left: 10, right: 10, top: 5, bottom: 5),
                                   child: Card(
-                                      color:HexColor(CommonAccess().dahBoardSearchBoxColor),
+                                      color: HexColor(CommonAccess()
+                                          .dahBoardSearchBoxColor),
                                       // color: HexColor(new CommonAccess().habitCardColor),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5.0),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       elevation: 20,
                                       child: Padding(
-                                        padding: EdgeInsets.only(left: 10, right: 15),
+                                        padding: EdgeInsets.only(
+                                            left: 10, right: 15),
                                         child: Row(
                                           children: [
                                             Expanded(
                                               flex: 8,
                                               child: TextField(
-                                                onChanged: onStorySearchTextChanged,
-                                                  decoration: new InputDecoration(
-                                                      border: InputBorder.none,
-                                                      focusedBorder: InputBorder.none,
-                                                      enabledBorder: InputBorder.none,
-                                                      errorBorder: InputBorder.none,
-                                                      disabledBorder:
+                                                onChanged:
+                                                    onStorySearchTextChanged,
+                                                decoration: new InputDecoration(
+                                                  border: InputBorder.none,
+                                                  focusedBorder:
                                                       InputBorder.none,
-                                                      contentPadding:
+                                                  enabledBorder:
+                                                      InputBorder.none,
+                                                  errorBorder: InputBorder.none,
+                                                  disabledBorder:
+                                                      InputBorder.none,
+                                                  contentPadding:
                                                       EdgeInsets.all(10),
-                                                      hintText:
-                                                      CommonAccess().searchHint,),
-                                              style: TextStyle(fontSize: 25),),
+                                                  hintText:
+                                                      CommonAccess().searchHint,
+                                                ),
+                                                style: TextStyle(fontSize: 25),
+                                              ),
                                             ),
                                             Expanded(
                                                 flex: 2,
                                                 child: Align(
-                                                  alignment: Alignment.centerRight,
+                                                  alignment:
+                                                      Alignment.centerRight,
                                                   child: Icon(
                                                     Icons.search,
                                                     size: 30,
@@ -207,84 +219,109 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                               height: 20,
                             ),
                             LayoutBuilder(
-                              builder:
-                                  (BuildContext context, BoxConstraints constraints) {
-                                if (storyVisible == CommonAccess().itemNotFound) {
+                              builder: (BuildContext context,
+                                  BoxConstraints constraints) {
+                                if (storyVisible ==
+                                    CommonAccess().itemNotFound) {
                                   return Expanded(
                                       child: Align(
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "Story Not Found",
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ));
-                                } else if (storyVisible == CommonAccess().itemNotFound) {
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Story Not Found",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.black),
+                                    ),
+                                  ));
+                                } else if (storyVisible ==
+                                    CommonAccess().itemNotFound) {
                                   return Expanded(
                                       child: Align(
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "Unknown Error Occurred",
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ));
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Unknown Error Occurred",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.black),
+                                    ),
+                                  ));
                                 } else if (storyVisible ==
                                     CommonAccess().itemLoading) {
                                   return Expanded(
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Center(
-                                            child: CircularProgressIndicator(
-                                              valueColor:
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Center(
+                                        child: CircularProgressIndicator(
+                                          valueColor:
                                               new AlwaysStoppedAnimation<Color>(
                                                   Colors.black45),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Center(
-                                            child: Text(
-                                              'Loading Story..',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black54),
-                                            ),
-                                          )
-                                        ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Center(
+                                        child: Text(
+                                          'Loading Story..',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black54),
+                                        ),
+                                      )
+                                    ],
+                                  ));
+                                } else if (storyVisible ==
+                                    CommonAccess().itemFound) {
+                                  return Container(
+                                     // height: CommonAccess().storyCardHeight,
+                                      child: LayoutBuilder(
+                                        builder: (BuildContext context,
+                                            BoxConstraints constraints) {
+                                          if (storiesSearchList.isNotEmpty) {
+                                            return SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                children: [
+                                                  for (int index = 0; index < storiesSearchList.length; index++)
+                                                    dashBoardCardItem(storiesSearchList[index])
+                                                ],
+                                              ),
+                                          );
+                                            /*return storyListBuilder(
+                                                storiesSearchList);*/
+                                          } else {
+                                           /* return storyListBuilder(
+                                                storiesList);*/
+                                            return SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                children: [
+                                                  for (int index = 0; index < storiesList.length; index++)
+                                                    dashBoardCardItem(storiesList[index])
+                                                ],
+                                              ),
+                                            );
+                                          }
+                                        },
                                       ));
-                                } else if (storyVisible == CommonAccess().itemFound) {
-                                  return Container(
-                                    height: CommonAccess().storyCardHeight,
-                                    child: LayoutBuilder(  builder: (BuildContext context, BoxConstraints constraints){
-                                      if(storiesSearchList.isNotEmpty){
-                                        return storyListBuilder(storiesSearchList);
-                                      }else{
-                                        return storyListBuilder(storiesList);
-                                      }
-                                    },)
-                                  );
                                 } else {
-                                  return Container(
-                                    
-                                  );
+                                  return Container();
                                 }
                               },
                             )
                           ],
-                        ),),
+                        ),
+                      ),
                     ],
                   ),
                 )),
@@ -322,102 +359,138 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     }
 
     storiesList.forEach((storyDetail) {
-      if (storyDetail.title.contains(text)){
+      if (storyDetail.title.contains(text)) {
         storiesSearchList.add(storyDetail);
       }
     });
     setState(() {});
   }
 
-  Widget storyListBuilder(List<DashboardStoryPojo> commonStoriesList){
-    return
-      ListView.builder(
+  Widget storyListBuilder(List<DashboardStoryPojo> commonStoriesList) {
+    return ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: commonStoriesList.length,
-        itemBuilder:
-            (BuildContext context, int index) {
+        itemBuilder: (BuildContext context, int index) {
           return TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          StoryScreen(
-                              story: commonStoriesList[index])),
+                          StoryScreen(story: commonStoriesList[index])),
                 );
               },
               child: Container(
                 child: Column(
                   children: [
                     Card(
-                      color:HexColor(CommonAccess().dahBoardStoryCardColor),
+                      color: HexColor(CommonAccess().dahBoardStoryCardColor),
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.circular(
-                            5.0),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                       elevation: 10,
                       child: Container(
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(
-                                5),
+                            borderRadius: BorderRadius.circular(5),
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    commonStoriesList[index]
-                                        .images[0]),
+                                    commonStoriesList[index].images[0]),
                                 fit: BoxFit.fill)),
-                        width: CommonAccess()
-                            .storyCardWidth,
-                        height: CommonAccess()
-                            .storyImageHeight,
+                        width: CommonAccess().storyCardWidth,
+                        height: CommonAccess().storyImageHeight,
                       ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Card(
-                        color:HexColor(CommonAccess().dahBoardStoryCardColor),
+                        color: HexColor(CommonAccess().dahBoardStoryCardColor),
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.circular(
-                              5.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
                         elevation: 10,
                         child: SizedBox(
-                            height: CommonAccess()
-                                .storyTextHeight,
+                            height: CommonAccess().storyTextHeight,
                             child: Padding(
-                              padding:
-                              EdgeInsets.only(
-                                  left: 5,
-                                  right: 5),
+                              padding: EdgeInsets.only(left: 5, right: 5),
                               child: Expanded(
                                   child: Align(
-                                    alignment:
-                                    Alignment.center,
-                                    child: Text(
-                                      commonStoriesList[index]
-                                          .title,
-                                      maxLines: 1,
-                                      overflow:
-                                      TextOverflow
-                                          .ellipsis,
-                                      style: TextStyle(
-                                          fontWeight:
-                                          FontWeight
-                                              .bold,
-                                          fontSize: 15,
-                                          color: Colors
-                                              .black),
-                                    ),
-                                  )),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  commonStoriesList[index].title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.black),
+                                ),
+                              )),
                             ))),
                   ],
                 ),
                 width: CommonAccess().storyCardWidth,
               ));
         });
+  }
+
+  Widget dashBoardCardItem(DashboardStoryPojo commonStoriesData) {
+    return TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => StoryScreen(story: commonStoriesData)),
+          );
+        },
+        child: Container(
+          child: Column(
+            children: [
+              Card(
+                color: HexColor(CommonAccess().dahBoardStoryCardColor),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                elevation: 10,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      image: DecorationImage(
+                          image: NetworkImage(commonStoriesData.images[0]),
+                          fit: BoxFit.fill)),
+                  width: CommonAccess().storyCardWidth,
+                  height: CommonAccess().storyImageHeight,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Card(
+                  color: HexColor(CommonAccess().dahBoardStoryCardColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  elevation: 10,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 5, right: 5,top: 10,bottom: 10),
+                    child: Expanded(
+                        child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        commonStoriesData.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black),
+                      ),
+                    )),
+                  ))
+            ],
+          ),
+          width: CommonAccess().storyCardWidth,
+        ));
   }
 }
