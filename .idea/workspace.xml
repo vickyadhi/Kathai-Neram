@@ -25,14 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
-    </list>
+    <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
