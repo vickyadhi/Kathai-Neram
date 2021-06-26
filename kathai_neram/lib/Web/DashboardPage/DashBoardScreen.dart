@@ -247,7 +247,6 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   return Container(
                                     height: CommonAccess().storyCardHeight,
                                     child: LayoutBuilder(  builder: (BuildContext context, BoxConstraints constraints){
-                                      print("testtttt "+storiesSearchList.length.toString());
                                       if(storiesSearchList.isNotEmpty){
                                         return storyListBuilder(storiesSearchList);
                                       }else{
