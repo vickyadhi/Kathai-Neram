@@ -50,8 +50,6 @@ class DashBoardScreenState extends State<DashBoardScreen> {
         } else {
           storyVisible = CommonAccess().itemNotFound;
         }
-        //temp added
-        //storiesSearchList.addAll(storiesList);
         onStorySearchTextChanged('');
       });
     }).catchError((error) {
