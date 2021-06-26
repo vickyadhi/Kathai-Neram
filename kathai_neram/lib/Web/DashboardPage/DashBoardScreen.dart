@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kathai_neram/AddNewStoryScreen.dart';
 import 'package:kathai_neram/Web/DashboardPage/pojoModel/DashboardStoryPojo.dart';
 import 'package:kathai_neram/Web/Utils/CommonAccess.dart';
 import 'package:kathai_neram/Web/Utils/HexColor.dart';
@@ -145,6 +146,13 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(
                         height: 20,
                       ),
+                      IconButton(onPressed:() {
+      Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AddNewStoryScreen()),
+              );
+                      }, icon: Icon(Icons.add)),
                       Padding(padding: EdgeInsets.all(10),child:
                         Column(
                           children: [
@@ -207,6 +215,20 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                         alignment: Alignment.center,
                                         child: Text(
                                           "Story Not Found",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      ));
+                                } else if (storyVisible == CommonAccess().itemNotFound) {
+                                  return Expanded(
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Unknown Error Occurred",
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(

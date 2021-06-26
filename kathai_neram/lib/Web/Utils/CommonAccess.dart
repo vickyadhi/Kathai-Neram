@@ -23,5 +23,6 @@ class CommonAccess{
   int itemLoading=0;
   int itemFound=200;
   int itemNotFound=401;
+  int itemNotFoundDueToError=404;
 
 }
