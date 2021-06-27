@@ -12,7 +12,7 @@ class CommonAccess{
   String dahBoardSearchBoxColor="#DEEAF6";
 
 
-  String appName="Kathai Neram";
+  String appName="Nanneri Kathaigal";
   String appDashboardDesc="Children's story telling platform";
   String searchHint="Search Kathai";
 

@@ -5,14 +5,6 @@ import 'Web/DashboardPage/pojoModel/DashboardStoryPojo.dart';
 double deviceSize(BuildContext context)=>MediaQuery.of(context).size.width;
 
 class StoryScreen extends StatefulWidget {
-  
-  static bool isMobile(BuildContext context) => MediaQuery.of(context).size.width<800;
-
-  static bool isTablet(BuildContext context)=> MediaQuery.of(context).size.width>=800 && MediaQuery.of(context).size.width< 1200;
-
-  static bool isDesktop(BuildContext context)=>MediaQuery.of(context).size.width>=1200;
-
-
   final DashboardStoryPojo story;
   const StoryScreen({Key key, this.story}) : super(key: key);
   @override
@@ -24,6 +16,12 @@ class _StoryScreenState extends State<StoryScreen> {
   IconButton playButton;
   IconButton pauseButton;
   bool isPlaying = false;
+  static bool isMobile(BuildContext context) => MediaQuery.of(context).size.width<800;
+
+  static bool isTablet(BuildContext context)=> MediaQuery.of(context).size.width>=800 && MediaQuery.of(context).size.width< 1200;
+
+  static bool isDesktop(BuildContext context)=>MediaQuery.of(context).size.width>=1200;
+
   @override
   Widget build(BuildContext context) {
     playButton = IconButton(
@@ -78,7 +76,8 @@ class _StoryScreenState extends State<StoryScreen> {
 
   itemForIndex(int index, List<String> splits) {
     List<Widget> list = [
-      Align(
+
+      /*Align(
           alignment: Alignment.bottomRight,
           child: Image.network(
             widget.story.images[index],
@@ -92,16 +91,59 @@ class _StoryScreenState extends State<StoryScreen> {
           textDirection: TextDirection.ltr,
           overflow: TextOverflow.visible,
         ),
+      ),*/
+      Expanded(
+        flex: 1,
+        child: Image.network(
+          widget.story.images[index],
+         // width: 500,
+        ),
       ),
+      Expanded(
+        flex: 1,
+        child: Text(
+          splits[index],
+          textAlign: TextAlign.justify,
+          style: TextStyle(fontSize: 18),
+          textDirection: TextDirection.ltr,
+          overflow: TextOverflow.visible,
+        ),
+      )
     ];
 
-    if (index % 2 == 0) {
+   /* if (index % 2 == 0) {
       return Row(
         children: list,
       );
     } else {
       return Row(children: list.reversed.toList());
+    }*/
+    if(isMobile(context)){
+      return Column(
+        children: [
+          Image.network(
+            widget.story.images[index],
+            // width: 500,
+          ),
+          Text(
+            splits[index],
+            textAlign: TextAlign.justify,
+            style: TextStyle(fontSize: 15),
+            textDirection: TextDirection.ltr,
+            overflow: TextOverflow.visible,
+          ),
+        ],
+      );
+    }else{
+      if (index % 2 == 0) {
+        return Row(
+          children: list,
+        );
+      } else {
+        return Row(children: list.reversed.toList());
+      }
     }
+
   }
 }
 

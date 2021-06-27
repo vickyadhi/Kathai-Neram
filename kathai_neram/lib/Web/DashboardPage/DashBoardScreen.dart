@@ -114,29 +114,46 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                         child: Padding(
                           padding: EdgeInsets.only(
                               top: 25, bottom: 25, left: 10, right: 10),
-                          child: Column(
+                          child: Stack(
                             children: [
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text("Kathai Neram Stories",
-                                  style: TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                CommonAccess().appDashboardDesc,
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
+                              Center(child:                           Column(
+                                children: [
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(CommonAccess().appName,
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    CommonAccess().appDashboardDesc,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                ],
+                              ),),
+                              Container(
+                                alignment: Alignment.centerRight,
+                                child:   IconButton(
+                                  color: Colors.white,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => AddNewStoryScreen()),
+                                      );
+                                    },
+                                    icon: Icon(Icons.add)),
+                              )
                             ],
                           ),
                         ),
@@ -144,15 +161,6 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AddNewStoryScreen()),
-                            );
-                          },
-                          icon: Icon(Icons.add)),
                       Padding(
                         padding: EdgeInsets.all(10),
                         child: Column(
@@ -221,8 +229,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   BoxConstraints constraints) {
                                 if (storyVisible ==
                                     CommonAccess().itemNotFound) {
-                                  return Expanded(
-                                      child: Align(
+                                  return Align(
                                     alignment: Alignment.center,
                                     child: Text(
                                       "Story Not Found",
@@ -233,11 +240,10 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                           fontSize: 15,
                                           color: Colors.black),
                                     ),
-                                  ));
+                                  );
                                 } else if (storyVisible ==
                                     CommonAccess().itemNotFound) {
-                                  return Expanded(
-                                      child: Align(
+                                  return Align(
                                     alignment: Alignment.center,
                                     child: Text(
                                       "Unknown Error Occurred",
@@ -248,20 +254,20 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                           fontSize: 15,
                                           color: Colors.black),
                                     ),
-                                  ));
+                                  );
                                 } else if (storyVisible ==
                                     CommonAccess().itemLoading) {
-                                  return Expanded(
-                                      child: Column(
+                                  return Align(alignment: Alignment.center,
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     children: [
                                       Center(
                                         child: CircularProgressIndicator(
                                           valueColor:
-                                              new AlwaysStoppedAnimation<Color>(
-                                                  Colors.black45),
+                                          new AlwaysStoppedAnimation<Color>(
+                                              Colors.black45),
                                         ),
                                       ),
                                       SizedBox(
@@ -277,7 +283,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                         ),
                                       )
                                     ],
-                                  ));
+                                  ),);
                                 } else if (storyVisible ==
                                     CommonAccess().itemFound) {
                                   return Container(
@@ -471,21 +477,20 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                   elevation: 10,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 5, right: 5,top: 10,bottom: 10),
-                    child: Expanded(
-                        child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        commonStoriesData.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.black),
-                      ),
-                    )),
-                  ))
+                      padding: EdgeInsets.only(left: 5, right: 5,top: 10,bottom: 10),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          commonStoriesData.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        ),
+                      )
+                  )),
             ],
           ),
           width: CommonAccess().storyCardWidth,
