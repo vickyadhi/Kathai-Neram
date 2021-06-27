@@ -31,7 +31,7 @@ class _StoryScreenState extends State<StoryScreen> {
             isPlaying = true;
           });
         },
-        icon: Icon(Icons.send));
+        icon: Icon(Icons.play_arrow));
     pauseButton = IconButton(
         onPressed: () {
           player.pause();

@@ -26,11 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53954919-f0ae-4478-b6cb-aa8339a7fe10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kathai_neram/lib/StoryScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/StoryScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/DashboardPage/DashBoardScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/CommonAccess.dart" beforeDir="false" afterPath="$PROJECT_DIR$/kathai_neram/lib/Web/Utils/CommonAccess.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624798053189</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Dashboard and story screen page flexible issue fixed">
+      <created>1624803768371</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624803768372</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -196,7 +199,8 @@
     <MESSAGE value="app name changes&#10;Live build changes" />
     <MESSAGE value="Dashboard adaptive changes" />
     <MESSAGE value="local build changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="local build changes" />
+    <MESSAGE value="Dashboard and story screen page flexible issue fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard and story screen page flexible issue fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624167358132">
@@ -207,10 +211,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="1336" height="624" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1624167339547" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624798052116">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1624803765970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624798052116" />
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624803765970" />
     <state x="93" y="93" width="1350" height="678" key="DiffContextDialog" timestamp="1624554111590">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -249,14 +253,14 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1624782755871" />
     <state x="277" y="60" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1624558226934" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624798079140">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1624803806950">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624798079140" />
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624798063634">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624803806950" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog" timestamp="1624803786439">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624798063634" />
+    <state x="484" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1624803786439" />
     <state x="426" y="189" width="672" height="677" key="run.anything.popup" timestamp="1624096698552">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
