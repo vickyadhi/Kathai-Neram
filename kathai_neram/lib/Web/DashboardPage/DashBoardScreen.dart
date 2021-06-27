@@ -43,7 +43,8 @@ class DashBoardScreenState extends State<DashBoardScreen> {
               item.id.toString(),
               item['audio'].toString(),
               item['story'].toString(),
-              item['images']));
+              item['images'],
+              item['thumbnail']));
         }
         if (storiesList.isNotEmpty) {
           storyVisible = CommonAccess().itemFound;
@@ -116,40 +117,43 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                               top: 25, bottom: 25, left: 10, right: 10),
                           child: Stack(
                             children: [
-                              Center(child:                           Column(
-                                children: [
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(CommonAccess().appName,
+                              Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(CommonAccess().appName,
+                                        style: TextStyle(
+                                            fontSize: 28,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white)),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      CommonAccess().appDashboardDesc,
                                       style: TextStyle(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white)),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    CommonAccess().appDashboardDesc,
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                ],
-                              ),),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                  ],
+                                ),
+                              ),
                               Container(
                                 alignment: Alignment.centerRight,
-                                child:   IconButton(
-                                  color: Colors.white,
+                                child: IconButton(
+                                    color: Colors.white,
                                     onPressed: () {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => AddNewStoryScreen()),
+                                            builder: (context) =>
+                                                AddNewStoryScreen()),
                                       );
                                     },
                                     icon: Icon(Icons.add)),
@@ -257,67 +261,77 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                                   );
                                 } else if (storyVisible ==
                                     CommonAccess().itemLoading) {
-                                  return Align(alignment: Alignment.center,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                    children: [
-                                      Center(
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                          new AlwaysStoppedAnimation<Color>(
-                                              Colors.black45),
+                                  return Align(
+                                    alignment: Alignment.center,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Center(
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                new AlwaysStoppedAnimation<
+                                                    Color>(Colors.black45),
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Center(
-                                        child: Text(
-                                          'Loading Story..',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
+                                        SizedBox(
+                                          height: 20,
                                         ),
-                                      )
-                                    ],
-                                  ),);
+                                        Center(
+                                          child: Text(
+                                            'Loading Story..',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black54),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  );
                                 } else if (storyVisible ==
                                     CommonAccess().itemFound) {
                                   return Container(
-                                     // height: CommonAccess().storyCardHeight,
+                                      // height: CommonAccess().storyCardHeight,
                                       child: LayoutBuilder(
-                                        builder: (BuildContext context,
-                                            BoxConstraints constraints) {
-                                          if (storiesSearchList.isNotEmpty) {
-                                            return SingleChildScrollView(
-                                              scrollDirection: Axis.horizontal,
-                                              child: Row(
-                                                children: [
-                                                  for (int index = 0; index < storiesSearchList.length; index++)
-                                                    dashBoardCardItem(storiesSearchList[index])
-                                                ],
-                                              ),
-                                          );
-                                            /*return storyListBuilder(
+                                    builder: (BuildContext context,
+                                        BoxConstraints constraints) {
+                                      if (storiesSearchList.isNotEmpty) {
+                                        return SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            children: [
+                                              for (int index = 0;
+                                                  index <
+                                                      storiesSearchList.length;
+                                                  index++)
+                                                dashBoardCardItem(
+                                                    storiesSearchList[index])
+                                            ],
+                                          ),
+                                        );
+                                        /*return storyListBuilder(
                                                 storiesSearchList);*/
-                                          } else {
-                                           /* return storyListBuilder(
+                                      } else {
+                                        /* return storyListBuilder(
                                                 storiesList);*/
-                                            return SingleChildScrollView(
-                                              scrollDirection: Axis.horizontal,
-                                              child: Row(
-                                                children: [
-                                                  for (int index = 0; index < storiesList.length; index++)
-                                                    dashBoardCardItem(storiesList[index])
-                                                ],
-                                              ),
-                                            );
-                                          }
-                                        },
-                                      ));
+                                        return SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            children: [
+                                              for (int index = 0;
+                                                  index < storiesList.length;
+                                                  index++)
+                                                dashBoardCardItem(
+                                                    storiesList[index])
+                                            ],
+                                          ),
+                                        );
+                                      }
+                                    },
+                                  ));
                                 } else {
                                   return Container();
                                 }
@@ -399,7 +413,8 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                             borderRadius: BorderRadius.circular(5),
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    commonStoriesList[index].images[0]),
+                                    commonStoriesList[index].thumbnail
+                                    /*commonStoriesList[index].images[0]*/),
                                 fit: BoxFit.fill)),
                         width: CommonAccess().storyCardWidth,
                         height: CommonAccess().storyImageHeight,
@@ -461,7 +476,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       image: DecorationImage(
-                          image: NetworkImage(commonStoriesData.images[0]),
+                          image: NetworkImage(commonStoriesData.thumbnail),
                           fit: BoxFit.fill)),
                   width: CommonAccess().storyCardWidth,
                   height: CommonAccess().storyImageHeight,
@@ -477,7 +492,8 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                   ),
                   elevation: 10,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 5, right: 5,top: 10,bottom: 10),
+                      padding: EdgeInsets.only(
+                          left: 5, right: 5, top: 10, bottom: 10),
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
@@ -489,8 +505,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                               fontSize: 15,
                               color: Colors.black),
                         ),
-                      )
-                  )),
+                      ))),
             ],
           ),
           width: CommonAccess().storyCardWidth,

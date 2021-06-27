@@ -25,6 +25,12 @@ class _AddNewStoryScreenState extends State<AddNewStoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient:
+            LinearGradient(colors: [Colors.red[200], Colors.orange[200]]),
+          ),
+        ),
         title: Text("Add New Story"),
       ),
       body: Padding(
@@ -103,6 +109,9 @@ class _AddNewStoryScreenState extends State<AddNewStoryScreen> {
                       }),
                   SizedBox(height: 10),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red[200], // background
+                    ),
                     onPressed: _submit,
                     child: Text("submit"),
                   ),

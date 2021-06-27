@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'Web/DashboardPage/pojoModel/DashboardStoryPojo.dart';
 
-double deviceSize(BuildContext context)=>MediaQuery.of(context).size.width;
+double deviceSize(BuildContext context) => MediaQuery.of(context).size.width;
 
 class StoryScreen extends StatefulWidget {
   final DashboardStoryPojo story;
+
   const StoryScreen({Key key, this.story}) : super(key: key);
+
   @override
   _StoryScreenState createState() => _StoryScreenState();
 }
@@ -16,11 +18,16 @@ class _StoryScreenState extends State<StoryScreen> {
   IconButton playButton;
   IconButton pauseButton;
   bool isPlaying = false;
-  static bool isMobile(BuildContext context) => MediaQuery.of(context).size.width<800;
 
-  static bool isTablet(BuildContext context)=> MediaQuery.of(context).size.width>=800 && MediaQuery.of(context).size.width< 1200;
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 800;
 
-  static bool isDesktop(BuildContext context)=>MediaQuery.of(context).size.width>=1200;
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 800 &&
+      MediaQuery.of(context).size.width < 1200;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1200;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +83,6 @@ class _StoryScreenState extends State<StoryScreen> {
 
   itemForIndex(int index, List<String> splits) {
     List<Widget> list = [
-
       /*Align(
           alignment: Alignment.bottomRight,
           child: Image.network(
@@ -96,45 +102,50 @@ class _StoryScreenState extends State<StoryScreen> {
         flex: 1,
         child: Image.network(
           widget.story.images[index],
-         // width: 500,
+          // width: 500,
         ),
       ),
       Expanded(
-        flex: 1,
-        child: Text(
-          splits[index],
-          textAlign: TextAlign.justify,
-          style: TextStyle(fontSize: 18),
-          textDirection: TextDirection.ltr,
-          overflow: TextOverflow.visible,
-        ),
-      )
+          flex: 1,
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              splits[index],
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 30),
+              textDirection: TextDirection.ltr,
+              overflow: TextOverflow.visible,
+            ),
+          ))
     ];
 
-   /* if (index % 2 == 0) {
+    /* if (index % 2 == 0) {
       return Row(
         children: list,
       );
     } else {
       return Row(children: list.reversed.toList());
     }*/
-    if(isMobile(context)){
+    if (isMobile(context)) {
       return Column(
         children: [
           Image.network(
             widget.story.images[index],
             // width: 500,
           ),
-          Text(
-            splits[index],
-            textAlign: TextAlign.justify,
-            style: TextStyle(fontSize: 15),
-            textDirection: TextDirection.ltr,
-            overflow: TextOverflow.visible,
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              splits[index],
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 15),
+              textDirection: TextDirection.ltr,
+              overflow: TextOverflow.visible,
+            ),
           ),
         ],
       );
-    }else{
+    } else {
       if (index % 2 == 0) {
         return Row(
           children: list,
@@ -143,7 +154,5 @@ class _StoryScreenState extends State<StoryScreen> {
         return Row(children: list.reversed.toList());
       }
     }
-
   }
 }
-
