@@ -18,6 +18,7 @@ class _StoryScreenState extends State<StoryScreen> {
   IconButton playButton;
   IconButton pauseButton;
   bool isPlaying = false;
+  double textSize=20;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 800;
@@ -50,29 +51,46 @@ class _StoryScreenState extends State<StoryScreen> {
 
     var splits = widget.story.story.split("{image}");
     splits.removeWhere((element) => element.length < 1);
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          toolbarHeight: 90,
-          centerTitle: true,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient:
-                  LinearGradient(colors: [Colors.red[200], Colors.orange[200]]),
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            toolbarHeight: 90,
+            centerTitle: true,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient:
+                    LinearGradient(colors: [Colors.teal, Colors.lightGreenAccent]),
+              ),
             ),
+            title: Text("Story Screen"),
+            actions: [isPlaying ? pauseButton : playButton,
+            IconButton(onPressed: (){
+
+              setState(() {
+                textSize++;
+              });
+            }, icon: Icon(Icons.add)),
+              IconButton(onPressed: (){
+                setState(() {
+                  if(textSize>1){
+                    textSize--;
+                  }
+                });
+              }, icon: Icon(Icons.minimize))
+
+            ],
           ),
-          title: Text("Story Screen"),
-          actions: [isPlaying ? pauseButton : playButton],
-        ),
-        body: SafeArea(
-          child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: splits.length,
-              itemBuilder: (BuildContext context, int index) {
-                return itemForIndex(index, splits);
-              }),
-        ));
+          body: SafeArea(
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: splits.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return itemForIndex(index, splits);
+                }),
+          )),
+    );
   }
 
   playAudio() async {
@@ -112,7 +130,8 @@ class _StoryScreenState extends State<StoryScreen> {
             child: Text(
               splits[index],
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 30),
+              //style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: textSize),
               textDirection: TextDirection.ltr,
               overflow: TextOverflow.visible,
             ),
@@ -138,11 +157,13 @@ class _StoryScreenState extends State<StoryScreen> {
             child: Text(
               splits[index],
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 15),
+              //style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: textSize),
               textDirection: TextDirection.ltr,
               overflow: TextOverflow.visible,
             ),
           ),
+          Expanded(child: Text(widget.story.title[index]))
         ],
       );
     } else {

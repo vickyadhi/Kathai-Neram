@@ -107,10 +107,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [
-                            HexColor(CommonAccess().dahBoardTopGradient1),
-                            HexColor(CommonAccess().dahBoardTopGradient2)
-                          ]),
+                          gradient: LinearGradient(colors: [Colors.teal, Colors.lightGreenAccent]),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
