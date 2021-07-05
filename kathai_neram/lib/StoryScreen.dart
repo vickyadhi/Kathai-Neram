@@ -18,7 +18,7 @@ class _StoryScreenState extends State<StoryScreen> {
   IconButton playButton;
   IconButton pauseButton;
   bool isPlaying = false;
-  double textSize = 20;
+  double textSize = 30;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 800;
