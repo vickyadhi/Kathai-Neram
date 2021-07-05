@@ -18,7 +18,7 @@ class _StoryScreenState extends State<StoryScreen> {
   IconButton playButton;
   IconButton pauseButton;
   bool isPlaying = false;
-  double textSize=20;
+  double textSize = 20;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 800;
@@ -59,26 +59,31 @@ class _StoryScreenState extends State<StoryScreen> {
             centerTitle: true,
             flexibleSpace: Container(
               decoration: BoxDecoration(
-                gradient:
-                    LinearGradient(colors: [Colors.teal, Colors.lightGreenAccent]),
+                gradient: LinearGradient(
+                    colors: [Colors.teal, Colors.lightGreenAccent]),
               ),
             ),
             title: Text("Story Screen"),
-            actions: [isPlaying ? pauseButton : playButton,
-            IconButton(onPressed: (){
-
-              setState(() {
-                textSize++;
-              });
-            }, icon: Icon(Icons.add)),
-              IconButton(onPressed: (){
-                setState(() {
-                  if(textSize>1){
-                    textSize--;
-                  }
-                });
-              }, icon: Icon(Icons.minimize))
-
+            actions: [
+              isPlaying ? pauseButton : playButton,
+              TextButton(
+                  onPressed: () {
+                    setState(() {
+                      if (textSize < 50) {
+                        textSize = textSize + 5;
+                      }
+                    });
+                  },
+                  child: Text("+", style: TextStyle(color: Colors.white, fontSize: 30),)),
+              TextButton(
+                  onPressed: () {
+                    setState(() {
+                      if (textSize > 20) {
+                          textSize = textSize - 5;
+                      }
+                    });
+                  },
+                  child: Text("-", style: TextStyle(color: Colors.white, fontSize: 35),)),
             ],
           ),
           body: SafeArea(
@@ -100,44 +105,6 @@ class _StoryScreenState extends State<StoryScreen> {
   }
 
   itemForIndex(int index, List<String> splits) {
-    List<Widget> list = [
-      /*Align(
-          alignment: Alignment.bottomRight,
-          child: Image.network(
-            widget.story.images[index],
-            width: 500,
-          )),
-      Flexible(
-        child: Text(
-          splits[index],
-          textAlign: TextAlign.justify,
-          maxLines: 12,
-          textDirection: TextDirection.ltr,
-          overflow: TextOverflow.visible,
-        ),
-      ),*/
-      Expanded(
-        flex: 1,
-        child: Image.network(
-          widget.story.images[index],
-          // width: 500,
-        ),
-      ),
-      Expanded(
-          flex: 1,
-          child: Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              splits[index],
-              textAlign: TextAlign.justify,
-              //style: TextStyle(fontSize: 30),
-              style: TextStyle(fontSize: textSize),
-              textDirection: TextDirection.ltr,
-              overflow: TextOverflow.visible,
-            ),
-          ))
-    ];
-
     /* if (index % 2 == 0) {
       return Row(
         children: list,
@@ -167,6 +134,43 @@ class _StoryScreenState extends State<StoryScreen> {
         ],
       );
     } else {
+      List<Widget> list = [
+        /*Align(
+          alignment: Alignment.bottomRight,
+          child: Image.network(
+            widget.story.images[index],
+            width: 500,
+          )),
+      Flexible(
+        child: Text(
+          splits[index],
+          textAlign: TextAlign.justify,
+          maxLines: 12,
+          textDirection: TextDirection.ltr,
+          overflow: TextOverflow.visible,
+        ),
+      ),*/
+        Expanded(
+          flex: 1,
+          child: Image.network(
+            widget.story.images[index],
+            // width: 500,
+          ),
+        ),
+        Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                splits[index],
+                textAlign: TextAlign.justify,
+                //style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: textSize),
+                textDirection: TextDirection.ltr,
+                overflow: TextOverflow.visible,
+              ),
+            ))
+      ];
       if (index % 2 == 0) {
         return Row(
           children: list,
