@@ -31,6 +31,12 @@ class _StoryScreenState extends State<StoryScreen> {
       MediaQuery.of(context).size.width >= 1200;
 
   @override
+  void dispose() {
+    player.stop();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     playButton = IconButton(
         onPressed: () {
@@ -65,25 +71,22 @@ class _StoryScreenState extends State<StoryScreen> {
             ),
             title: Text("Story Screen"),
             actions: [
-              isPlaying ? pauseButton : playButton,
-              TextButton(
-                  onPressed: () {
+              IconButton(
+                onPressed: () {
+                },
+                icon: Icon(Icons.font_download_outlined),
+              ),
+              Slider(
+                  value: textSize,
+                  min: 20,
+                  max: 50,
+                  divisions: 5,
+                  label: textSize.round().toString(),
+                  onChanged: (currentValue) {
                     setState(() {
-                      if (textSize < 50) {
-                        textSize = textSize + 5;
-                      }
+                      textSize = currentValue;
                     });
-                  },
-                  child: Text("+", style: TextStyle(color: Colors.white, fontSize: 30),)),
-              TextButton(
-                  onPressed: () {
-                    setState(() {
-                      if (textSize > 20) {
-                          textSize = textSize - 5;
-                      }
-                    });
-                  },
-                  child: Text("-", style: TextStyle(color: Colors.white, fontSize: 35),)),
+                  }),
             ],
           ),
           body: SafeArea(
@@ -94,7 +97,15 @@ class _StoryScreenState extends State<StoryScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return itemForIndex(index, splits);
                 }),
-          )),
+          ), 
+          floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: isPlaying ? pauseButton : playButton,
+        backgroundColor: Colors.green,
+      )
+          ),
     );
   }
 
