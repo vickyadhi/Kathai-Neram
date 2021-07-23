@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'Web/DashboardPage/pojoModel/DashboardStoryPojo.dart';
+import 'audio.dart';
 
 double deviceSize(BuildContext context) => MediaQuery.of(context).size.width;
 
@@ -15,9 +16,11 @@ class StoryScreen extends StatefulWidget {
 
 class _StoryScreenState extends State<StoryScreen> {
   final player = AudioPlayer();
+  bool isPlaying = false;
+  Duration _duration;
+  AudioPlayer _audioPlayer;
   IconButton playButton;
   IconButton pauseButton;
-  bool isPlaying = false;
   double textSize = 30;
 
   static bool isMobile(BuildContext context) =>
@@ -38,6 +41,7 @@ class _StoryScreenState extends State<StoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool isPlayerOpened = false;
     playButton = IconButton(
         onPressed: () {
           playAudio();
@@ -59,55 +63,49 @@ class _StoryScreenState extends State<StoryScreen> {
     splits.removeWhere((element) => element.length < 1);
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: AppBar(
-            toolbarHeight: 90,
-            centerTitle: true,
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Colors.teal, Colors.lightGreenAccent]),
-              ),
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          toolbarHeight: 90,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.teal, Colors.lightGreenAccent]),
             ),
-            title: Text("Story Screen"),
-            actions: [
-              IconButton(
-                onPressed: () {
-                },
-                icon: Icon(Icons.font_download_outlined),
-              ),
-              Slider(
-                  value: textSize,
-                  min: 20,
-                  max: 50,
-                  divisions: 5,
-                  label: textSize.round().toString(),
-                  onChanged: (currentValue) {
-                    setState(() {
-                      textSize = currentValue;
-                    });
-                  }),
-            ],
           ),
-          body: SafeArea(
-            child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: splits.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return itemForIndex(index, splits);
+          title: Text("Story Screen"),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.font_download_outlined),
+            ),
+            Slider(
+                value: textSize,
+                min: 20,
+                max: 50,
+                divisions: 5,
+                label: textSize.round().toString(),
+                onChanged: (currentValue) {
+                  setState(() {
+                    textSize = currentValue;
+                  });
                 }),
-          ), 
-          floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        child: isPlaying ? pauseButton : playButton,
-        backgroundColor: Colors.green,
-      )
-          ),
+          ],
+        ),
+        body: SafeArea(
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: splits.length,
+              itemBuilder: (BuildContext context, int index) {
+                return itemForIndex(index, splits);
+              }),
+        ),
+        floatingActionButton: floatingActionItem,
+      ),
     );
   }
+
 
   playAudio() async {
     var duration = await player.setUrl(widget.story.audio);
@@ -191,4 +189,53 @@ class _StoryScreenState extends State<StoryScreen> {
       }
     }
   }
+  onPaused() {
+    setState(() {
+      isPlaying= false;
+    });
+  }
+  get floatingActionItem {
+    Widget floatingPlayer = FloatingAudioPlayer(onPaused: onPaused,audioUrl: widget.story.audio,);
+
+   /* Widget floatingPlayer = GestureDetector(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(width: 35,),
+          Container(
+            height: 125,
+            width: 325,
+            color: Colors.teal,
+          ),
+        ],
+      ),
+      onTap: () {
+        setState(() {
+          isPlaying = false;
+        });
+      },
+    );*/
+
+    Widget floatingActionButton = FloatingActionButton(
+      onPressed: () {
+        setState(() {
+          isPlaying = true;
+        });
+      },
+      child: Icon(Icons.play_arrow_outlined),
+    );
+
+    return AnimatedSwitcher(
+      reverseDuration: Duration(milliseconds: 0),
+      duration: const Duration(milliseconds: 200),
+      transitionBuilder: (Widget child, Animation<double> animation) {
+        return ScaleTransition(child: child, scale: animation);
+      },
+     // child: isPlaying ? pauseButton : playButton,
+      child: isPlaying ? floatingPlayer: floatingActionButton,
+
+    );
+  }
+
 }
+
