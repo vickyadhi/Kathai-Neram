@@ -22,12 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5856f62c-d77f-4223-84cd-b0bd5625566a" name="Default Changelist" comment="" />
+    <list default="true" id="5856f62c-d77f-4223-84cd-b0bd5625566a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Administrator\.android\avd\Pixel_5_API_30.avd]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -39,8 +45,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$USER_HOME$/StudioProjects/kmr_cotton" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -66,39 +73,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="223" y="87" width="1089" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624349769309">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="223" y="87" width="1089" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1624349769309" />
-    <state x="549" y="206" key="FileChooserDialogImpl" timestamp="1624350586578">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="549" y="206" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1624350586578" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1624350293333">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1624350293333" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1624350293333">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1624350293333" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1624350293333">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1624350293333" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1624350293333">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1624350293333" />
-    <state x="349" y="175" key="IDE.errors.dialog" timestamp="1624350097253">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="349" y="175" key="IDE.errors.dialog/0.0.1536.864@0.0.1536.864" timestamp="1624350097253" />
-    <state x="269" y="95" key="SettingsEditor" timestamp="1624350266293">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="269" y="95" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1624350266293" />
   </component>
 </project>

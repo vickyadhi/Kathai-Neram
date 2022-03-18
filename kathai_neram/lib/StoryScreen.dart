@@ -80,6 +80,8 @@ class _StoryScreenState extends State<StoryScreen> {
               icon: Icon(Icons.font_download_outlined),
             ),
             Slider(
+              activeColor: Colors.white,
+
                 value: textSize,
                 min: 20,
                 max: 50,
@@ -217,6 +219,7 @@ class _StoryScreenState extends State<StoryScreen> {
     );*/
 
     Widget floatingActionButton = FloatingActionButton(
+    backgroundColor: Colors.lightGreenAccent,
       onPressed: () {
         setState(() {
           isPlaying = true;
